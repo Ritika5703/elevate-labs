@@ -662,6 +662,9 @@ body::before {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
   }
+  .hero {
+    padding-top: 100px;
+  }
 
   .hero-title {
     font-size: 3.2rem;
@@ -866,7 +869,7 @@ body::before {
   }
 
   .hero {
-    padding-top: 60px;
+    padding-top: 80px;
   }
 
   .hero-container {
@@ -934,7 +937,7 @@ body::before {
   }
 
   .hero {
-    padding-top: 56px;
+    padding-top: 80px;
   }
 
   .hero-container {
