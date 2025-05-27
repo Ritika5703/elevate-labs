@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-box">
+      <h1>✨ My To-Do List</h1>
+
+      <div class="input-box">
+        <input
+          type="text"
+          id="textInput"
+          placeholder="Add a new task..."
+          maxlength="150"
+        />
+        <button id="addButton">Add Task</button>
+      </div>
+
+      <div class="numbers-box">
+        <div class="number">
+          <span>Total:</span>
+          <span class="number-value" id="totalNumber">0</span>
+        </div>
+        <div class="number">
+          <span>Completed:</span>
+          <span class="number-value" id="doneNumber">0</span>
+        </div>
+        <div class="number">
+          <span>Remaining:</span>
+          <span class="number-value" id="leftNumber">0</span>
+        </div>
+      </div>
+
+      <div class="buttons-box">
+        <div class="button-group">
+          <button class="filter-button active" data-filter="all">All</button>
+          <button class="filter-button" data-filter="active">Active</button>
+          <button class="filter-button" data-filter="completed">Done</button>
+        </div>
+      </div>
+
+      <ul id="myList"></ul>
+
+      <div class="no-tasks" id="noTasks">
+        <div class="icon">📝</div>
+        <div>No tasks yet! Add one above to get started.</div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
