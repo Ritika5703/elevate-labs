@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nature Explorer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" aria-label="Nature Explorer homepage"
+          >Nature Explorer</a
+        >
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span class="hamburger"></span>
+        </button>
+        <nav>
+          <ul class="nav-menu" role="menubar">
+            <li role="none">
+              <a href="#home" class="nav-link" role="menuitem">Home</a>
+            </li>
+            <li role="none">
+              <a href="#destinations" class="nav-link" role="menuitem"
+                >Destinations</a
+              >
+            </li>
+            <li role="none">
+              <a href="#gallery" class="nav-link" role="menuitem">Gallery</a>
+            </li>
+            <li role="none">
+              <a href="#contact" class="nav-link" role="menuitem">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="hero"
+        aria-label="Hero section introducing Nature Explorer"
+      >
+        <div class="hero-content">
+          <h1>Discover the Beauty of Nature</h1>
+          <p>
+            Explore breathtaking destinations, capture stunning moments, and
+            immerse yourself in the great outdoors with Nature Explorer.
+          </p>
+          <button class="btn-primary" aria-label="Explore Destinations">
+            Explore Destinations
+          </button>
+        </div>
+        <div class="hero-image" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+            alt="Scenic mountain view with lake and forest"
+          />
+        </div>
+      </section>
+
+      <section id="destinations" aria-label="Popular nature destinations">
+        <h2>Top Destinations</h2>
+        <div class="destinations-grid">
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://cdn.recommend.com/wp-content/uploads/2017/02/On-The-Go-Tours-Taj-Mahal-Agra-India-Photo-credit-Steve-Allen-Dreamstime.com_.jpg"
+              alt="Taj Mahal, Agra"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Taj Mahal, Agra</h3>
+              <p>
+                Visit the iconic symbol of love and marvel at its stunning
+                architecture.
+              </p>
+            </div>
+          </article>
+
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://3.bp.blogspot.com/-NMAsmUbM64s/WorK2743xLI/AAAAAAAAAq8/PLVm4okU-VoL2PYylY36ie1WHh9--FqIwCLcBGAs/s1600/Publication2.jpg"
+              alt="Hawa Mahal, Jaipur"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Hawa Mahal, Jaipur</h3>
+              <p>
+                Explore the stunning palace of winds with its intricate
+                latticework.
+              </p>
+            </div>
+          </article>
+
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://www.touristsecrets.com/wp-content/uploads/2023/09/the-kerala-backwaters-11-things-to-know-before-you-visit-1694874522.jpg"
+              alt="Kerala Backwaters"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Kerala Backwaters</h3>
+              <p>
+                Cruise through serene waterways and enjoy the tranquil nature.
+              </p>
+            </div>
+          </article>
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://static2.tripoto.com/media/filter/tst/img/OgData/1652265091_photo_1512343879784_a960bf40e7f2.jpg"
+              alt="Goa Beach"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Goa Beaches</h3>
+              <p>
+                Relax on golden sands and enjoy vibrant beach life and
+                nightlife.
+              </p>
+            </div>
+          </article>
+
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://3.imimg.com/data3/EF/FQ/MY-3370654/tea-gardens-of-darjeeling-the-hidden-paradise-500x500.jpg"
+              alt="Darjeeling Tea Gardens"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Darjeeling Tea Gardens</h3>
+              <p>
+                Explore lush tea plantations with stunning views of the
+                Himalayas.
+              </p>
+            </div>
+          </article>
+
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://as2.ftcdn.net/jpg/04/08/25/05/1000_F_408250543_MVaEVGeWxb4FiFy7mEGKj8nfYkwoAZON.jpg"
+              alt="Varanasi Ghats"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Varanasi Ghats</h3>
+              <p>
+                Witness spiritual rituals and vibrant river life on the sacred
+                Ganges.
+              </p>
+            </div>
+          </article>
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://www.travelganga.in/wp-content/uploads/2023/11/Rann-of-Kutch.jpg"
+              alt="Rann of Kutch Salt Desert"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Rann of Kutch</h3>
+              <p>
+                Experience the vast white salt desert and vibrant cultural
+                festivals.
+              </p>
+            </div>
+          </article>
+
+          <article class="destination-card" tabindex="0">
+            <img
+              src="https://uploads-ssl.webflow.com/6094741aba31b56efe984fb1/60ae1baac0ebd54a76a891ab_DJI_0068.jpg"
+              alt="Sundarbans Mangrove Forest"
+              class="destination-image"
+            />
+            <div class="destination-info">
+              <h3>Sundarbans</h3>
+              <p>
+                Explore the largest mangrove forest and home of the Bengal
+                tiger.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" aria-label="Photo gallery of nature images">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-grid" role="list">
+          <img
+            src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?auto=format&fit=crop&w=400&q=80"
+            alt="Close-up of green leaf with dew drops"
+            role="listitem"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=400&q=80"
+            alt="Mountain landscape with cloudy sky"
+            role="listitem"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="Field of wildflowers under a blue sky"
+            role="listitem"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80"
+            alt="Sunset with orange sky and pine trees silhouette"
+            role="listitem"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80"
+            alt="River flowing through rocky valley"
+            role="listitem"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80"
+            alt="Ocean waves crashing on shore"
+            role="listitem"
+          />
+        </div>
+      </section>
+
+      <section id="contact" aria-label="Contact form">
+        <h2>Contact Us</h2>
+        <form
+          class="contact-form"
+          aria-describedby="contact-desc"
+          onsubmit="event.preventDefault(); alert('Thank you for contacting Nature Explorer!'); this.reset();"
+        >
+          <p id="contact-desc">
+            Have questions or want to share your nature adventures? Send us a
+            message!
+          </p>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your full name"
+            required
+            autocomplete="name"
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your.email@example.com"
+            required
+            autocomplete="email"
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+
+          <button type="submit" aria-label="Send message">Send Message</button>
+        </form>
+      </section>
+    </main>
+    <footer>&copy; 2025 NatureExplorer. All rights reserved.</footer>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      navToggle.addEventListener("click", () => {
+        const expanded =
+          navToggle.getAttribute("aria-expanded") === "true" || false;
+        navToggle.setAttribute("aria-expanded", !expanded);
+        navToggle.classList.toggle("nav-toggle_active");
+        navMenu.classList.toggle("nav-menu_active");
+      });
+    </script>
+  </body>
+</html>
