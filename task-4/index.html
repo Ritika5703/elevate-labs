@@ -18,8 +18,8 @@
         >
         <button
           class="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
+          id="navToggle"
+          aria-label="Toggle navigation"
         >
           <span class="hamburger"></span>
         </button>
@@ -273,15 +273,28 @@
     </main>
     <footer>&copy; 2025 NatureExplorer. All rights reserved.</footer>
     <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navMenu = document.querySelector(".nav-menu");
+      const toggle = document.getElementById("navToggle");
+      const navMenu = document.querySelector("nav ul.nav-menu");
+      const navLinks = document.querySelectorAll(".nav-link");
 
-      navToggle.addEventListener("click", () => {
-        const expanded =
-          navToggle.getAttribute("aria-expanded") === "true" || false;
-        navToggle.setAttribute("aria-expanded", !expanded);
-        navToggle.classList.toggle("nav-toggle_active");
-        navMenu.classList.toggle("nav-menu_active");
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggle.classList.toggle("nav-toggle_active");
+        navMenu.classList.toggle("show");
+      });
+
+      navMenu.addEventListener("click", (e) => e.stopPropagation());
+
+      document.addEventListener("click", () => {
+        toggle.classList.remove("nav-toggle_active");
+        navMenu.classList.remove("show");
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          toggle.classList.remove("nav-toggle_active");
+          navMenu.classList.remove("show");
+        });
       });
     </script>
   </body>

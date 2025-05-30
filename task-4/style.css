@@ -343,4 +343,23 @@ footer {
   .hero-content {
     order: 2;
   }
+  .nav-toggle {
+    display: block; /* Make the hamburger button visible */
+  }
+
+  nav ul.nav-menu {
+    display: none; /* Hide nav menu by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #4caf50;
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+
+  .nav-toggle_active + nav ul.nav-menu {
+    display: flex;
+  }
 }
