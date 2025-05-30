@@ -50,3 +50,14 @@ The website now provides a smooth browsing experience across desktop, tablet, an
 - Chrome DevTools
 
 ---
+
+## 🔥 Screenshots
+
+![Desktop View](screenshots/desktop-view.png)
+
+<table>
+  <tr>
+    <td><img src="screenshots/mobile-view.png" alt="Mobile View 1" width="300"/></td>
+    <td><img src="screenshots/mobile-view-2.png" alt="Mobile View 2" width="300"/></td>
+  </tr>
+</table>
