@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrendVibe - Your Modern Lifestyle Hub</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --dark-bg: #1a1a2e;
+        --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .navbar {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #333 !important;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: #667eea !important;
+        transform: translateY(-2px);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: var(--primary-gradient);
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+        left: 0;
+      }
+
+      .hero-section {
+        background: var(--primary-gradient);
+        color: white;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background-color: var(--primary-gradient);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        background: var(--secondary-gradient);
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .blog-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: var(--card-shadow);
+        background: white;
+        height: 100%;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--hover-shadow);
+      }
+
+      .blog-card img {
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .blog-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .blog-card .card-body {
+        padding: 2rem;
+      }
+
+      .blog-card .card-title {
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .blog-card .card-text {
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .read-more-btn {
+        background: var(--accent-gradient);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        color: white;
+      }
+
+      .read-more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+        color: white;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 100px;
+      }
+
+      .sidebar-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: var(--card-shadow);
+        margin-bottom: 2rem;
+        border: none;
+      }
+
+      .sidebar-card h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .social-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        margin: 0 8px 8px 0;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-btn.instagram {
+        background: linear-gradient(
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: white;
+      }
+
+      .social-btn.twitter {
+        background: #1da1f2;
+        color: white;
+      }
+
+      .social-btn.youtube {
+        background: #ff0000;
+        color: white;
+      }
+
+      .social-btn:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .newsletter-form .form-control {
+        border-radius: 15px;
+        border: 2px solid #e9ecef;
+        padding: 12px 20px;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter-form .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      }
+
+      .newsletter-btn {
+        background: var(--primary-gradient);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 15px;
+        font-weight: 600;
+        color: white;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      .footer {
+        background: var(--dark-bg);
+        color: white;
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-social {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .footer-social .social-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        margin: 0 10px;
+      }
+
+      .footer-social .social-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .footer-copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .sidebar {
+          position: static;
+          margin-top: 3rem;
+        }
+
+        .blog-card {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#home">TrendVibe</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 hero-content fade-in">
+            <h1 class="hero-title">Stay Ahead of the Curve</h1>
+            <p class="hero-subtitle">
+              Discover the latest trends in lifestyle, tech, wellness, and
+              productivity. Your daily dose of inspiration awaits.
+            </p>
+            <a href="#blog" class="btn cta-button">
+              Explore Latest Posts <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+                    class="card-img-top"
+                    alt="Tech Trends"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      10 Tech Trends That Will Shape 2025
+                    </h5>
+                    <p class="card-text">
+                      From AI breakthroughs to sustainable tech, explore the
+                      innovations that are reshaping our digital future.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80"
+                    class="card-img-top"
+                    alt="Wellness"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Mindful Living in a Digital Age</h5>
+                    <p class="card-text">
+                      Balance screen time with self-care. Discover practical
+                      tips for maintaining mental wellness in our connected
+                      world.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                    class="card-img-top"
+                    alt="Productivity"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Productivity Hacks for Remote Workers
+                    </h5>
+                    <p class="card-text">
+                      Maximize your work-from-home efficiency with these proven
+                      strategies and tools that actually work.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    class="card-img-top"
+                    alt="Lifestyle"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Sustainable Fashion: Style Meets Ethics
+                    </h5>
+                    <p class="card-text">
+                      Look good while doing good. Explore eco-friendly fashion
+                      brands and styling tips for the conscious consumer.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                    class="card-img-top"
+                    alt="Food"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Plant-Based Recipes for Busy Lives
+                    </h5>
+                    <p class="card-text">
+                      Quick, healthy, and delicious plant-based meals that fit
+                      your hectic schedule without compromising on taste.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="card blog-card fade-in">
+                  <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+                    class="card-img-top"
+                    alt="Career"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      Building Your Personal Brand Online
+                    </h5>
+                    <p class="card-text">
+                      Stand out in the digital crowd. Learn how to craft an
+                      authentic online presence that opens doors to new
+                      opportunities.
+                    </p>
+                    <a href="#" class="btn read-more-btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="card sidebar-card">
+                <h5><i class="bi bi-people-fill me-2"></i>Follow Us</h5>
+                <p class="mb-3">
+                  Stay connected for daily inspiration and trending content!
+                </p>
+                <div class="text-center">
+                  <button class="social-btn instagram">
+                    <i class="bi bi-instagram"></i>
+                  </button>
+                  <button class="social-btn twitter">
+                    <i class="bi bi-twitter"></i>
+                  </button>
+                  <button class="social-btn youtube">
+                    <i class="bi bi-youtube"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card sidebar-card">
+                <h5><i class="bi bi-envelope-heart me-2"></i>Weekly Digest</h5>
+                <p class="mb-3">
+                  Get the best content delivered to your inbox every week.
+                </p>
+                <form class="newsletter-form">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your email address"
+                    required
+                  />
+                  <button type="submit" class="btn newsletter-btn">
+                    Subscribe Now <i class="bi bi-arrow-right ms-1"></i>
+                  </button>
+                </form>
+              </div>
+
+              <div class="card sidebar-card">
+                <h5><i class="bi bi-fire me-2"></i>Trending Now</h5>
+                <div class="list-group list-group-flush">
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0 px-0"
+                  >
+                    <small class="text-muted">#TechTalk</small><br />
+                    <strong>AI in Everyday Life</strong>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0 px-0"
+                  >
+                    <small class="text-muted">#Wellness</small><br />
+                    <strong>Digital Detox Challenge</strong>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0 px-0"
+                  >
+                    <small class="text-muted">#Lifestyle</small><br />
+                    <strong>Minimalist Living Tips</strong>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-social">
+          <h5 class="mb-4">Connect With TrendVibe</h5>
+          <button class="social-btn">
+            <i class="bi bi-instagram"></i>
+          </button>
+          <button class="social-btn">
+            <i class="bi bi-twitter"></i>
+          </button>
+          <button class="social-btn">
+            <i class="bi bi-youtube"></i>
+          </button>
+          <button class="social-btn">
+            <i class="bi bi-linkedin"></i>
+          </button>
+        </div>
+        <div class="footer-copyright">
+          <p>
+            &copy; 2025 TrendVibe. All rights reserved. | Stay Ahead, Stay
+            Inspired
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document
+        .querySelector(".newsletter-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          if (email) {
+            alert(
+              "Thanks for subscribing! Welcome to the TrendVibe community 🎉"
+            );
+            this.reset();
+          }
+        });
+    </script>
+  </body>
+</html>
